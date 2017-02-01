@@ -206,5 +206,12 @@ gulp.task('pagespeed', pagespeed.bind(null, {
   strategy: 'mobile'
 }));
 
+var ghPages = require('gulp-gh-pages');
+ 
+gulp.task('deploy', ['default'], function() {
+  return gulp.src('./dist/**/*')
+    .pipe($.ghPages());
+});
+
 // Load custom tasks from the `tasks` directory
 // try { require('require-dir')('tasks'); } catch (err) { console.error(err); }
